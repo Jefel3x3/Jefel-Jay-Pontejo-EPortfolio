@@ -92,15 +92,31 @@ export default function Testimonials() {
 
               {/* Author */}
               <div className="flex items-center gap-4">
-                <div
-                  className="w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0"
-                  style={{ background: `linear-gradient(135deg, ${c1}, ${c2})` }}
-                >
-                  {current.avatar}
-                </div>
+                {current.photo ? (
+                  <img
+                    src={current.photo}
+                    alt={current.name}
+                    className="w-14 h-14 rounded-full object-cover flex-shrink-0 border-2 border-white/10"
+                  />
+                ) : (
+                  <div
+                    className="w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0"
+                    style={{ background: `linear-gradient(135deg, ${c1}, ${c2})` }}
+                  >
+                    {current.avatar}
+                  </div>
+                )}
                 <div>
                   <p className="text-white font-bold">{current.name}</p>
                   <p className="text-gray-500 text-sm">{current.role}</p>
+                  {current.email && (
+                    <a
+                      href={`mailto:${current.email}`}
+                      className="text-violet-400 text-xs hover:text-violet-300 transition-colors"
+                    >
+                      {current.email}
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>
@@ -157,12 +173,16 @@ export default function Testimonials() {
                 }`}
               >
                 <div className="flex items-center gap-2.5 mb-1">
-                  <div
-                    className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold"
-                    style={{ background: `linear-gradient(135deg, ${tc1}, #1d4ed8)` }}
-                  >
-                    {t.avatar}
-                  </div>
+                  {t.photo ? (
+                    <img src={t.photo} alt={t.name} className="w-7 h-7 rounded-full object-cover flex-shrink-0" />
+                  ) : (
+                    <div
+                      className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0"
+                      style={{ background: `linear-gradient(135deg, ${tc1}, #1d4ed8)` }}
+                    >
+                      {t.avatar}
+                    </div>
+                  )}
                   <p className="text-white text-xs font-semibold truncate">{t.name}</p>
                 </div>
                 <p className="text-gray-600 text-xs truncate">{t.role}</p>

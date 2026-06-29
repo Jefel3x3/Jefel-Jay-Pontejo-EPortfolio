@@ -1,8 +1,12 @@
-import project1 from '../assets/project1.jpg';
-import project2 from '../assets/project2.jpg';
-import project3 from '../assets/project3.jpg';
-import project4 from '../assets/project4.jpg';
-import project5 from '../assets/project5.jpg';
+import project1 from '../assets/project1.png';
+import project2 from '../assets/project2.png';
+import project4 from '../assets/project4.jpeg';
+import project5 from '../assets/project5.png';
+import project6 from '../assets/project6.png';
+import project7 from '../assets/project7.png';
+import gsGownPhoto from '../assets/GSGOWN.jpg';
+import sbrTetciPhoto from '../assets/SBRTETCI.jpg';
+import jspLendingPhoto from '../assets/JSPLENDING.jpg';
 
 export const NAV_LINKS = [
   { label: 'Home', href: '#hero' },
@@ -35,7 +39,7 @@ export const PROJECTS = [
     gradient: 'from-purple-600/20 to-blue-600/20',
     accentColor: '#7c3aed',
     image: project1,
-    liveUrl: 'https://gs-gown-rental.web.app/',
+    liveUrl: null,
     githubUrl: 'https://github.com/Jefel3x3',
     featured: true,
   },
@@ -47,21 +51,9 @@ export const PROJECTS = [
     gradient: 'from-cyan-600/20 to-teal-600/20',
     accentColor: '#06b6d4',
     image: project2,
-    liveUrl: 'https://www.sbrtetci.com/',
-    githubUrl: 'https://github.com/Jefel3x3',
-    featured: true,
-  },
-  {
-    id: 3,
-    title: 'GS Gown Rental App',
-    description: 'Mobile-first progressive web app version of the gown rental system with offline capabilities, push notifications, and optimized mobile UX.',
-    tech: ['ReactJS', 'PWA', 'Firebase', 'Tailwind CSS'],
-    gradient: 'from-pink-600/20 to-rose-600/20',
-    accentColor: '#ec4899',
-    image: project3,
     liveUrl: null,
     githubUrl: 'https://github.com/Jefel3x3',
-    featured: false,
+    featured: true,
   },
   {
     id: 4,
@@ -86,6 +78,30 @@ export const PROJECTS = [
     liveUrl: null,
     githubUrl: 'https://github.com/Jefel3x3',
     featured: false,
+  },
+  {
+    id: 6,
+    title: 'SBR TETCI Scholarship Application',
+    description: 'A comprehensive scholarship application system for SBR TETCI institution, enabling students to apply for scholarships online with document submission, status tracking, and admin review dashboard.',
+    tech: ['ReactJS', 'Firebase', 'Tailwind CSS', 'Educational Systems'],
+    gradient: 'from-indigo-600/20 to-violet-600/20',
+    accentColor: '#6366f1',
+    image: project6,
+    liveUrl: null,
+    githubUrl: 'https://github.com/Jefel3x3',
+    featured: false,
+  },
+  {
+    id: 7,
+    title: 'JJP AI Tools',
+    description: 'A collection of AI-powered tools and utilities designed to boost productivity, featuring smart text generation, image analysis, and intelligent automation built with modern AI integrations.',
+    tech: ['ReactJS', 'AI Integration', 'Firebase', 'Tailwind CSS'],
+    gradient: 'from-fuchsia-600/20 to-pink-600/20',
+    accentColor: '#d946ef',
+    image: project7,
+    liveUrl: null,
+    githubUrl: 'https://github.com/Jefel3x3',
+    featured: true,
   },
 ];
 
@@ -144,20 +160,24 @@ export const SERVICES = [
 export const TESTIMONIALS = [
   {
     id: 1,
-    name: 'Maria Santos',
-    role: 'School Principal, TETCI',
-    text: 'Jefel delivered an exceptional LMS that transformed how our teachers and students interact. The system is intuitive, fast, and exactly what we needed.',
+    name: 'Ivan Edward O. Cantaros',
+    role: 'Vr/President, BOT/School Director',
+    email: 'ivan.sbrtetci@gmail.com',
+    text: 'Jefel delivered an exceptional LMS that transformed how our trainers and trainees interact. The system is intuitive, fast, and exactly what we needed.',
     rating: 5,
-    avatar: 'MS',
+    avatar: 'IC',
+    photo: sbrTetciPhoto,
     gradient: 'from-purple-500 to-blue-500',
   },
   {
     id: 2,
-    name: 'Carlo Reyes',
-    role: 'Business Owner, GS Rentals',
+    name: 'Jerah Manuel Sarabia',
+    role: 'Business Owner',
+    email: 'sarabiajerahmanuel@gmail.com',
     text: 'The gown rental webapp exceeded all our expectations. Real-time inventory tracking and a seamless booking system has made our operations so much smoother.',
     rating: 5,
-    avatar: 'CR',
+    avatar: 'JS',
+    photo: gsGownPhoto,
     gradient: 'from-cyan-500 to-teal-500',
   },
   {
@@ -171,11 +191,13 @@ export const TESTIMONIALS = [
   },
   {
     id: 4,
-    name: 'Ramon Cruz',
-    role: 'IT Manager',
-    text: 'Professional, responsive, and highly skilled. Jefel built our Firebase-backed system in record time with clean code and excellent documentation.',
+    name: 'Jefty Q. Pontejo',
+    role: 'Business Owner',
+    email: 'pjefty@gmail.com',
+    text: 'Jefel built exactly what our lending business needed. Tracking loans, borrowers, and repayment schedules is now effortless. The dashboard is clean, the reports are accurate, and it has saved us hours of manual work every single day.',
     rating: 5,
-    avatar: 'RC',
+    avatar: 'JP',
+    photo: jspLendingPhoto,
     gradient: 'from-green-500 to-emerald-500',
   },
 ];

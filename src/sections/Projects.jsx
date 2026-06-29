@@ -122,7 +122,7 @@ function ProjectCard({ project, index, onPreview }) {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="glass rounded-2xl border border-white/5 overflow-hidden group transition-all duration-500 hover:-translate-y-2"
+      className="glass rounded-2xl border border-white/5 overflow-hidden group transition-all duration-500 hover:-translate-y-2 flex flex-col"
       style={{ boxShadow: hovered ? `0 20px 60px ${project.accentColor}15` : 'none' }}
     >
       {/* Thumbnail */}
@@ -182,7 +182,7 @@ function ProjectCard({ project, index, onPreview }) {
       </div>
 
       {/* Content */}
-      <div className="p-6">
+      <div className="p-6 flex flex-col flex-1">
         <h3 className="text-white font-bold text-lg mb-2 group-hover:text-violet-300 transition-colors">
           {project.title}
         </h3>
@@ -191,7 +191,7 @@ function ProjectCard({ project, index, onPreview }) {
         </p>
 
         {/* Tech badges */}
-        <div className="flex flex-wrap gap-2 mb-6">
+        <div className="flex flex-wrap gap-2 mb-6 flex-1 content-start">
           {project.tech.map((tech) => {
             const style = TECH_COLORS[tech] || { bg: '#ffffff10', text: '#9ca3af' };
             return (
@@ -204,7 +204,7 @@ function ProjectCard({ project, index, onPreview }) {
         </div>
 
         {/* Actions */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 mt-auto">
           {project.liveUrl ? (
             <motion.a
               href={project.liveUrl}

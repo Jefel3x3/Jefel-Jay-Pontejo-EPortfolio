@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
-import {
-  FiArrowDown, FiGithub, FiMail,
-} from 'react-icons/fi';
+import { useState, useEffect } from 'react';
+import { FiArrowDown, FiGithub, FiMail } from 'react-icons/fi';
 import {
   SiReact, SiFirebase, SiTailwindcss, SiNodedotjs, SiCloudflare, SiFlutter,
 } from 'react-icons/si';
@@ -11,12 +10,12 @@ import profilePhoto from '../assets/profile.png';
 const ROLES = ['Full Stack Developer', 'ReactJS Developer', 'LMS Developer', 'Firebase Expert', 'AI Integrator'];
 
 const techStack = [
-  { icon: SiReact, label: 'ReactJS', color: '#61DAFB' },
-  { icon: SiFirebase, label: 'Firebase', color: '#FFCA28' },
-  { icon: SiTailwindcss, label: 'Tailwind', color: '#38BDF8' },
-  { icon: SiNodedotjs, label: 'Node.js', color: '#68A063' },
-  { icon: SiCloudflare, label: 'Cloudflare', color: '#F48120' },
-  { icon: SiFlutter, label: 'Flutter', color: '#54C5F8' },
+  { icon: SiReact,       label: 'ReactJS',     color: '#61DAFB' },
+  { icon: SiFirebase,    label: 'Firebase',    color: '#FFCA28' },
+  { icon: SiTailwindcss, label: 'Tailwind',    color: '#38BDF8' },
+  { icon: SiNodedotjs,   label: 'Node.js',     color: '#68A063' },
+  { icon: SiCloudflare,  label: 'Cloudflare',  color: '#F48120' },
+  { icon: SiFlutter,     label: 'Flutter',     color: '#54C5F8' },
 ];
 
 function RoleTyper() {
@@ -27,7 +26,6 @@ function RoleTyper() {
   useEffect(() => {
     const word = ROLES[idx];
     let timeout;
-
     if (!deleting && displayed.length < word.length) {
       timeout = setTimeout(() => setDisplayed(word.slice(0, displayed.length + 1)), 80);
     } else if (!deleting && displayed.length === word.length) {
@@ -38,37 +36,20 @@ function RoleTyper() {
       setDeleting(false);
       setIdx((i) => (i + 1) % ROLES.length);
     }
-
     return () => clearTimeout(timeout);
   }, [displayed, deleting, idx]);
 
   return (
     <span className="gradient-text font-bold">
-      {displayed}
-      <span className="animate-pulse text-violet-400">|</span>
+      {displayed}<span className="animate-pulse text-violet-400">|</span>
     </span>
   );
 }
 
-import { useState, useEffect } from 'react';
 
 const floatingCards = [
-  {
-    icon: SiReact,
-    label: 'React Expert',
-    sub: '3+ Years',
-    color: '#61DAFB',
-    className: 'top-1/4 -left-4 md:left-0',
-    delay: 0,
-  },
-  {
-    icon: SiFirebase,
-    label: 'Firebase Dev',
-    sub: 'Full Integration',
-    color: '#FFCA28',
-    className: 'bottom-1/3 -right-4 md:right-0',
-    delay: 0.5,
-  },
+  { icon: SiReact,    label: 'React Expert', sub: '3+ Years',        color: '#61DAFB', className: 'top-1/4 -left-4 md:left-0',    delay: 0   },
+  { icon: SiFirebase, label: 'Firebase Dev',  sub: 'Full Integration', color: '#FFCA28', className: 'bottom-1/3 -right-4 md:right-0', delay: 0.5 },
 ];
 
 export default function Hero() {
@@ -97,9 +78,9 @@ export default function Hero() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
+
           {/* Left — Text */}
           <div className="order-2 lg:order-1">
-            {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -110,7 +91,6 @@ export default function Hero() {
               Available for Work
             </motion.div>
 
-            {/* Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -124,7 +104,6 @@ export default function Hero() {
               <span className="text-white">Experiences</span>
             </motion.h1>
 
-            {/* Role typer */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -134,7 +113,6 @@ export default function Hero() {
               <RoleTyper />
             </motion.div>
 
-            {/* Subtitle */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -147,7 +125,6 @@ export default function Hero() {
               and a focus on exceptional user experiences.
             </motion.p>
 
-            {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -174,7 +151,6 @@ export default function Hero() {
               </motion.button>
             </motion.div>
 
-            {/* Social links */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -184,9 +160,9 @@ export default function Hero() {
               <span className="text-gray-600 text-sm">Find me on</span>
               <div className="flex gap-3">
                 {[
-                  { icon: FiGithub, href: 'https://github.com' },
-                  { icon: FaDiscord, href: 'https://discord.com/users/yourdiscordid' },
-                  { icon: FiMail, href: 'mailto:jefeljay@gmail.com' },
+                  { icon: FiGithub,  href: 'https://github.com/Jefel3x3' },
+                  { icon: FaDiscord, href: 'https://discord.com/users/jefeljay_91993' },
+                  { icon: FiMail,    href: 'mailto:jefeljay@gmail.com' },
                 ].map(({ icon: Icon, href }, i) => (
                   <motion.a
                     key={i}
@@ -208,21 +184,19 @@ export default function Hero() {
             <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
 
               {/* Outer dashed ring */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
+              <div
                 className="absolute inset-0 rounded-full border border-dashed border-violet-500/20"
+                style={{ animation: 'spin-cw 40s linear infinite', willChange: 'transform' }}
               />
 
               {/* Orbit track ring */}
-              <motion.div
-                animate={{ opacity: [0.4, 0.8, 0.4] }}
-                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+              <div
                 className="absolute rounded-full pointer-events-none"
                 style={{
                   inset: '2%',
                   border: '1px solid rgba(139,92,246,0.18)',
                   boxShadow: '0 0 20px rgba(139,92,246,0.08) inset, 0 0 20px rgba(139,92,246,0.08)',
+                  animation: 'orbit-pulse 4s ease-in-out infinite',
                 }}
               />
 
@@ -245,11 +219,10 @@ export default function Hero() {
 
               {/* Floating mini cards */}
               {floatingCards.map((card, i) => (
-                <motion.div
+                <div
                   key={i}
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, delay: card.delay, ease: 'easeInOut' }}
                   className={`absolute glass border border-white/10 rounded-xl px-3 py-2.5 flex items-center gap-2.5 min-w-[140px] ${card.className}`}
+                  style={{ animation: `float-bob 4s ease-in-out ${card.delay}s infinite`, willChange: 'transform' }}
                 >
                   <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: `${card.color}20` }}>
                     <card.icon size={18} style={{ color: card.color }} />
@@ -258,14 +231,13 @@ export default function Hero() {
                     <p className="text-white text-xs font-semibold leading-tight">{card.label}</p>
                     <p className="text-gray-500 text-xs">{card.sub}</p>
                   </div>
-                </motion.div>
+                </div>
               ))}
 
               {/* Rotating orbit — icons spin around the circle */}
-              <motion.div
+              <div
                 className="absolute inset-0"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 22, repeat: Infinity, ease: 'linear' }}
+                style={{ animation: 'spin-cw 22s linear infinite', willChange: 'transform' }}
               >
                 {techStack.map(({ icon: Icon, label, color }, i) => {
                   const angle = (i / techStack.length) * 360 + 30;
@@ -284,13 +256,12 @@ export default function Hero() {
                       className="absolute w-10 h-10 -translate-x-1/2 -translate-y-1/2 rounded-xl glass flex items-center justify-center cursor-default group"
                       style={{ left: `${x}%`, top: `${y}%`, border: `1px solid ${color}35`, boxShadow: `0 0 14px ${color}30` }}
                     >
-                      <motion.div
-                        animate={{ rotate: -360 }}
-                        transition={{ duration: 22, repeat: Infinity, ease: 'linear' }}
+                      <div
+                        style={{ animation: 'spin-ccw 22s linear infinite' }}
                         className="flex items-center justify-center"
                       >
                         <Icon size={20} style={{ color }} />
-                      </motion.div>
+                      </div>
                       <div
                         className="absolute -bottom-7 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-md text-[10px] font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none"
                         style={{ background: `${color}30`, border: `1px solid ${color}40` }}
@@ -300,30 +271,43 @@ export default function Hero() {
                     </motion.div>
                   );
                 })}
-              </motion.div>
+              </div>
 
               {/* Trailing purple glow dot */}
-              <motion.div
+              <div
                 className="absolute inset-0"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 14, repeat: Infinity, ease: 'linear' }}
+                style={{ animation: 'spin-cw 14s linear infinite', willChange: 'transform' }}
               >
-                <div className="absolute w-2.5 h-2.5 rounded-full -translate-x-1/2 -translate-y-1/2"
-                  style={{ left: `${Math.cos(-Math.PI / 2) * 48 + 50}%`, top: `${Math.sin(-Math.PI / 2) * 48 + 50}%`, background: 'radial-gradient(circle, rgba(139,92,246,0.9) 0%, rgba(139,92,246,0) 70%)', boxShadow: '0 0 12px rgba(139,92,246,0.8)' }} />
-              </motion.div>
+                <div
+                  className="absolute w-2.5 h-2.5 rounded-full -translate-x-1/2 -translate-y-1/2"
+                  style={{
+                    left: `${Math.cos(-Math.PI / 2) * 48 + 50}%`,
+                    top: `${Math.sin(-Math.PI / 2) * 48 + 50}%`,
+                    background: 'radial-gradient(circle, rgba(139,92,246,0.9) 0%, rgba(139,92,246,0) 70%)',
+                    boxShadow: '0 0 12px rgba(139,92,246,0.8)',
+                  }}
+                />
+              </div>
 
               {/* Trailing cyan glow dot */}
-              <motion.div
+              <div
                 className="absolute inset-0"
-                animate={{ rotate: -360 }}
-                transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
+                style={{ animation: 'spin-ccw 18s linear infinite', willChange: 'transform' }}
               >
-                <div className="absolute w-2 h-2 rounded-full -translate-x-1/2 -translate-y-1/2"
-                  style={{ left: `${Math.cos(Math.PI / 2) * 48 + 50}%`, top: `${Math.sin(Math.PI / 2) * 48 + 50}%`, background: 'radial-gradient(circle, rgba(34,211,238,0.9) 0%, rgba(34,211,238,0) 70%)', boxShadow: '0 0 10px rgba(34,211,238,0.8)' }} />
-              </motion.div>
+                <div
+                  className="absolute w-2 h-2 rounded-full -translate-x-1/2 -translate-y-1/2"
+                  style={{
+                    left: `${Math.cos(Math.PI / 2) * 48 + 50}%`,
+                    top: `${Math.sin(Math.PI / 2) * 48 + 50}%`,
+                    background: 'radial-gradient(circle, rgba(34,211,238,0.9) 0%, rgba(34,211,238,0) 70%)',
+                    boxShadow: '0 0 10px rgba(34,211,238,0.8)',
+                  }}
+                />
+              </div>
 
             </div>
           </div>
+
         </div>
 
         {/* Scroll indicator */}
